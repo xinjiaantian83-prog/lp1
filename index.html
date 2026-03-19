@@ -455,20 +455,39 @@
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
-      section { padding: 72px 20px; }
-      .industry-grid { grid-template-columns: repeat(2, 1fr); }
-      .industry-item:nth-child(2n) { border-right: none; }
-      .industry-item:nth-child(3n) { border-right: 2px solid var(--navy); }
-      .result-numbers { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-      .result-num { padding: 24px 12px; }
-      .price-card-top { padding: 24px 28px; }
-      .price-card-body { padding: 28px; }
-      .price-includes { grid-template-columns: 1fr; }
-      .strength-item { grid-template-columns: 56px 1fr; }
-      .strength-content { padding: 22px 20px; }
-      .hero-btns { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-secondary { width: 100%; max-width: 340px; text-align: center; }
-    }
+  section { padding: 72px 20px; }
+
+  .industry-grid { grid-template-columns: repeat(2, 1fr); }
+  .industry-item:nth-child(2n) { border-right: none; }
+  .industry-item:nth-child(3n) { border-right: 2px solid var(--navy); }
+
+  .result-numbers {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .result-num {
+    padding: 20px 16px;
+  }
+
+  .result-num .num {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .result-num .label {
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+
+  .price-card-top { padding: 24px 28px; }
+  .price-card-body { padding: 28px; }
+  .price-includes { grid-template-columns: 1fr; }
+  .strength-item { grid-template-columns: 56px 1fr; }
+  .strength-content { padding: 22px 20px; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 340px; text-align: center; }
+}
   </style>
 </head>
 <body>
