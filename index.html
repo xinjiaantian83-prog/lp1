@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>売れるホームページ制作｜中小企業・個人事業主向け</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --navy-light: #1a3260;
+      --gold: #c8974a;
+      --gold-light: #e8b96a;
+      --cream: #faf8f4;
+      --white: #ffffff;
+      --gray: #666;
+      --gray-light: #f5f3ef;
+      --text: #1a1a1a;
+      --radius: 4px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15, 31, 61, 0.97);
+      backdrop-filter: blur(8px);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .logo span { color: var(--gold); }
+    .header-cta {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--gold-light); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100svh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,151,74,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(200,151,74,0.07) 0%, transparent 60%);
+    }
+    .hero-inner { position: relative; max-width: 680px; }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(200,151,74,0.5);
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 7vw, 3.6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+      display: block;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      margin-bottom: 48px;
+      line-height: 1.9;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 18px 40px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(200,151,74,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(200,151,74,0.45);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 18px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: var(--white);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      animation: bounce 2.5s ease-in-out infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── Section common ── */
+    section { padding: 96px 24px; }
+    .container { max-width: 860px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      max-width: 520px;
+    }
+    .section-head { margin-bottom: 56px; }
+
+    /* ── 実績 ── */
+    .results { background: var(--white); }
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border: 2px solid var(--navy);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+    .industry-item {
+      padding: 32px 24px;
+      text-align: center;
+      background: var(--white);
+      border-right: 2px solid var(--navy);
+      border-bottom: 2px solid var(--navy);
+      transition: background 0.2s;
+    }
+    .industry-item:nth-child(3n) { border-right: none; }
+    .industry-item:nth-last-child(-n+3) { border-bottom: none; }
+    .industry-item:hover { background: var(--gray-light); }
+    .industry-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .industry-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .result-numbers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .result-num {
+      text-align: center;
+      padding: 36px 20px;
+      border: 1px solid rgba(15,31,61,0.1);
+      border-radius: 6px;
+      background: var(--gray-light);
+    }
+    .result-num .num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      display: block;
+    }
+    .result-num .unit { color: var(--gold); font-size: 1rem; font-weight: 700; }
+    .result-num .label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ── 料金 ── */
+    .pricing { background: var(--navy); }
+    .pricing .section-title { color: var(--white); }
+    .pricing .section-label { color: var(--gold); }
+    .pricing .section-desc { color: rgba(255,255,255,0.55); }
+    .price-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .price-card-top {
+      background: var(--gold);
+      padding: 32px 40px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .price-tag {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .price-from {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+    .price-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-left: auto;
+      align-self: flex-end;
+    }
+    .price-card-body { padding: 36px 40px; }
+    .price-includes {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 32px;
+      margin-bottom: 32px;
+    }
+    .price-includes li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding-left: 22px;
+      position: relative;
+    }
+    .price-includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .price-options {
+      padding: 20px 24px;
+      background: var(--gray-light);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    .price-options strong { color: var(--text); }
+
+    /* ── 強み ── */
+    .strengths { background: var(--cream); }
+    .strength-list {
+      display: grid;
+      gap: 2px;
+    }
+    .strength-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 0;
+      background: var(--white);
+      border: 1px solid rgba(15,31,61,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 12px;
+    }
+    .strength-item:hover {
+      transform: translateX(4px);
+      box-shadow: -4px 0 0 var(--gold), 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .strength-num {
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .strength-content { padding: 28px 32px; }
+    .strength-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .strength-text { font-size: 0.88rem; color: var(--gray); line-height: 1.8; }
+
+    /* ── 問い合わせ ── */
+    .contact { background: var(--navy); text-align: center; }
+    .contact .section-title { color: var(--white); }
+    .contact .section-label { color: var(--gold); }
+    .contact-desc {
+      color: rgba(255,255,255,0.6);
+      margin: 0 auto 52px;
+      max-width: 440px;
+      font-size: 0.95rem;
+    }
+    .contact-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .btn-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: #06c755;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 20px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: filter 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(6,199,85,0.3);
+    }
+    .btn-line:hover { filter: brightness(1.1); transform: translateY(-2px); }
+    .btn-tel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 20px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-tel:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+    .contact-small {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.75rem;
+      margin-top: 32px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #070f1f;
+      text-align: center;
+      padding: 32px 24px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+    }
+
+    /* ── Divider ── */
+    .gold-line {
+      width: 48px; height: 3px;
+      background: var(--gold);
+      margin: 24px 0;
+    }
+
+    /* ── Fade in ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      section { padding: 72px 20px; }
+      .industry-grid { grid-template-columns: repeat(2, 1fr); }
+      .industry-item:nth-child(2n) { border-right: none; }
+      .industry-item:nth-child(3n) { border-right: 2px solid var(--navy); }
+      .result-numbers { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .result-num { padding: 24px 12px; }
+      .price-card-top { padding: 24px 28px; }
+      .price-card-body { padding: 28px; }
+      .price-includes { grid-template-columns: 1fr; }
+      .strength-item { grid-template-columns: 56px 1fr; }
+      .strength-content { padding: 22px 20px; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 340px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">WEB<span>PRODUCE</span></div>
+  <a href="#contact" class="header-cta">無料相談する</a>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">個人事業主・中小企業向け　ホームページ制作</div>
+    <h1>売れる<em>ホームページを作ります</em></h1>
+    <p class="hero-sub">
+      「問い合わせが来ない」「古いサイトを刷新したい」<br>
+      営業視点で設計した、成果の出るホームページを提供します。
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">今すぐ無料相談する</a>
+      <a href="#pricing" class="btn-secondary">料金を見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- 実績 -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Industry</p>
+      <h2 class="section-title">どんな業種でも<br>対応できます</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">施工業・飲食・美容・士業など、幅広い業種の制作実績があります。業界特有の集客ポイントを理解した上で制作します。</p>
+    </div>
+
+    <div class="industry-grid fade-in">
+      <div class="industry-item">
+        <div class="industry-icon">🔨</div>
+        <div class="industry-name">施工・リフォーム</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon">🍽️</div>
+        <div class="industry-name">飲食・カフェ</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon">💆</div>
+        <div class="industry-name">美容・サロン</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon">⚖️</div>
+        <div class="industry-name">士業・コンサル</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon">🏥</div>
+        <div class="industry-name">医療・整体</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon">🏠</div>
+        <div class="industry-name">不動産・内装</div>
+      </div>
+    </div>
+
+    <div class="result-numbers fade-in">
+      <div class="result-num">
+        <span class="num">150<span class="unit">+</span></span>
+        <span class="label">制作実績</span>
+      </div>
+      <div class="result-num">
+        <span class="num">98<span class="unit">%</span></span>
+        <span class="label">顧客満足度</span>
+      </div>
+      <div class="result-num">
+        <span class="num">即日<span class="unit"></span></span>
+        <span class="label">ヒアリング対応</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">シンプルな料金体系</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">わかりやすい一律料金です。追加費用が発生する場合は事前にご説明します。</p>
+    </div>
+
+    <div class="price-card fade-in">
+      <div class="price-card-top">
+        <span class="price-from">税込</span>
+        <span class="price-tag">198,000円〜</span>
+        <span class="price-note">※規模・ページ数により変動</span>
+      </div>
+      <div class="price-card-body">
+        <ul class="price-includes">
+          <li>デザイン・コーディング</li>
+          <li>レスポンシブ対応（スマホ）</li>
+          <li>お問い合わせフォーム設置</li>
+          <li>SEO基本設定</li>
+          <li>Google Analytics設定</li>
+          <li>公開後1ヶ月の修正対応</li>
+          <li>独自ドメイン取得サポート</li>
+          <li>SSL（https）設定</li>
+        </ul>
+        <div class="price-options">
+          <strong>オプション：</strong>ロゴ制作・ライティング・写真撮影・LP追加・月額保守プランなども対応しています。まずはご相談ください。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 強み -->
+<section class="strengths" id="strengths">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Why Choose Us</p>
+      <h2 class="section-title">選ばれる３つの理由</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="strength-list">
+      <div class="strength-item fade-in">
+        <div class="strength-num">01</div>
+        <div class="strength-content">
+          <div class="strength-title">営業視点で設計するホームページ</div>
+          <p class="strength-text">「見た目だけ綺麗なサイト」ではなく、訪問者が問い合わせや来店・購入に至るよう、動線・訴求・CTAを徹底的に設計します。デザイナーではなく、営業・マーケティング視点で作るのが私たちの強みです。</p>
+        </div>
+      </div>
+      <div class="strength-item fade-in">
+        <div class="strength-num">02</div>
+        <div class="strength-content">
+          <div class="strength-title">シンプル設計で迷わせない</div>
+          <p class="strength-text">情報を詰め込みすぎた複雑なサイトはユーザーを迷わせます。必要な情報だけをわかりやすく届けるシンプル設計で、離脱率を下げ、コンバージョン率を高めます。</p>
+        </div>
+      </div>
+      <div class="strength-item fade-in">
+        <div class="strength-num">03</div>
+        <div class="strength-content">
+          <div class="strength-title">即日ヒアリング・スピード納品</div>
+          <p class="strength-text">お問い合わせ後、最短当日にヒアリングを実施します。スモールチームだからこそ、意思決定が速く、修正対応も柔軟。一般的な制作会社より大幅に短い納期で納品します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 問い合わせ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">まずは無料相談から</h2>
+      <div class="gold-line" style="margin: 24px auto;"></div>
+      <p class="contact-desc">
+        ご予算・ご要望をお聞きした上で、最適なプランをご提案します。<br>相談・見積りは完全無料です。お気軽にどうぞ。
+      </p>
+    </div>
+
+    <div class="contact-btns fade-in">
+      <a href="https://line.me/ti/p/xxxx" class="btn-line">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 5.96 2 10.8c0 3.08 1.77 5.79 4.44 7.47-.18.62-.65 2.25-.74 2.59-.12.43.16.43.33.31.14-.1 1.76-1.16 2.47-1.63.47.07.95.11 1.44.11 5.52 0 10-3.96 10-8.85C22 5.96 17.52 2 12 2z"/>
+        </svg>
+        LINEで相談する（無料）
+      </a>
+      <a href="tel:00-0000-0000" class="btn-tel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+        電話で相談する
+      </a>
+    </div>
+
+    <p class="contact-small fade-in">平日 9:00〜19:00 対応 ／ 土日もLINEは随時確認しています</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 WEBPRODUCE. All rights reserved.</p>
+</footer>
+
+<script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
