@@ -237,15 +237,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  border: 2px solid #0f1f3d;
-  border-radius: 10px;
-  overflow: hidden;
 }
     .result-num {
   text-align: center;
   padding: 36px 20px;
-  border-right: 1px solid #0f1f3d;
-  border-bottom: 1px solid #0f1f3d;
+  border: 1px solid #0f1f3d;
   border-radius: 0;
   background: var(--gray-light);
 }
@@ -264,13 +260,7 @@
       margin-top: 8px;
       display: block;
     }
-.result-num:nth-child(3n) {
-  border-right: none;
-}
 
-.result-num:nth-last-child(-n+3) {
-  border-bottom: none;
-}
     /* ── 料金 ── */
     .pricing { background: var(--navy); }
     .pricing .section-title { color: var(--white); }
